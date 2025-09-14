@@ -1,0 +1,6 @@
+#include <stdio.h>
+int main() {
+  printf("%s", "Hello, I have forgotten all of my C syntax\n");
+  printf("Do I even need to do the percent s or can I just pass a string literal?\n");
+  return 0;
+}

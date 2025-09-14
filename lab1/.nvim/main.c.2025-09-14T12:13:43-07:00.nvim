@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  FILE * stream;
+  char * line = NULL;
+  char * readd;
+  readd = getline(line, sizeof(char), stream);
+  printf(readd);
+  free(readd);
+
+  return 0;
+};

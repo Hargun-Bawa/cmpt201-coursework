@@ -1,0 +1,5 @@
+#include <stdio.h>
+int main() {
+  printf("%s", "Hello, I have forgotten all of my C syntax\n");
+  return 0;
+}

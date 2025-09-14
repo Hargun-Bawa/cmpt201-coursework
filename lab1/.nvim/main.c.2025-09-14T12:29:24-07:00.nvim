@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  char *line = NULL;
+  size_t readd;
+  size_t len = 32;
+  line = (char *)malloc(len * sizeof(char));
+  if (read == NULL) {
+    perror("Unable to allocate");
+    exit(1);
+  }
+  printf("Enter Tokens");
+  readd = getline(&line, &len, stdin);
+  printf("'%s'\n", line);
+
+  return 0;
+};
