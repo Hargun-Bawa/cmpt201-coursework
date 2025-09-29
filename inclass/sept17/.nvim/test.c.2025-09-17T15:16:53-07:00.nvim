@@ -1,0 +1,11 @@
+#
+#using < stdio.h>
+#using < stdlib.h>
+
+int main() {
+  if (fork() == 0) {
+    prtinf("parent");
+  } else
+    printf("child");
+  return 0;
+};

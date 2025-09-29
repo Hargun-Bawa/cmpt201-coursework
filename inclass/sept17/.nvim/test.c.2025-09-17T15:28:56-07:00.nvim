@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+  if (fork() == 0) {
+    printf("parent\n");
+    execl("/bin/ls", "/bin/ls", "../../", "-a", NULL);
+  } else
+    printf("child\n");
+  execl("/bin/ls", "/bin/ls", "../../", '-a-l-h', NULL);
+  return 0;
+};

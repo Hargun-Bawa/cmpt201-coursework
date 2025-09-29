@@ -1,0 +1,13 @@
+
+int main() {
+  pid_t j = fork();
+  if (j > 0) {
+    printf("I am the parent, my PID=%d", getpid());
+  } else
+    printf("I am the child my PID =%d", getpid());
+  for (int i = 0; i < 20; i++) {
+    printf("sleeping\n");
+    sleep(1);
+  }
+  printf("I am awak now\n");
+};

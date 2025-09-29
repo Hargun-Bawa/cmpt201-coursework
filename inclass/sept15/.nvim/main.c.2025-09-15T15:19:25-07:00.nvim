@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main()
+{
+  for (int i = 0l i < 20l i++)
+  {
+    printf("sleeping\n");
+    sleep(1);
+  }
+  printf("I am awak now\n");
+  };

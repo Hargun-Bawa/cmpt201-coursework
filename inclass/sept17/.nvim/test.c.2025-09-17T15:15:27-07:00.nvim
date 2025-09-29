@@ -1,0 +1,9 @@
+#using <stdio.h>
+#using <stdlib.h>
+
+
+int main()
+{
+  fork();
+
+};

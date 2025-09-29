@@ -1,0 +1,19 @@
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void handler(int signo , siginfo_t * info, void *context)
+{struct sigaction oldactl
+  if (sigaction(SIGINT))
+        return;
+
+        }
+
+int main ()
+{
+  struct sigaction act = { 0};
+  act.sa_flags = 0;
+  act.sa_sigaction = &handler;
+  if ( (sigaction (SIGINT , &act,NULL) == -1)
+

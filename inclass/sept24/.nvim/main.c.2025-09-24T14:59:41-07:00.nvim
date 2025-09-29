@@ -1,0 +1,23 @@
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void handler(int signo, siginfo_t *info, void *context) {
+  struct sigaction oldact;
+  if (sigaction(SIGINT, NULL, &oldact) == -1) {
+    _exit(EXIT_FAILURE);
+  }
+  _exit(EXIT_SUCCESS);
+}
+
+int main() {
+  struct sigaction act = {0};
+  act.sa_flags = 0;
+  act.sa_sigaction = &handler;
+  if (sigaction(SIGINT, &act, NULL) == -1) {
+    perror("sigaction");
+    exit(EXIT_FAILURE);
+  }
+  kill(SIGINT);
+}

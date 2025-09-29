@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <errno.h>
+
+int main() {
+  int x = 0;
+  pid_t b = fork();
+  if (waitpid(b, &x, 0) == -1) {
+    perror("waitpid");
+    exit(EXIT_FAILURE);
+  } else {
+    printf("\nI am the parent\n");
+    execl("/bin/ls", "/bin/ls", "../../", "-a", NULL);
+    printf("exit status of child: %d\n", WEXITSTATUS(x));
+  }
+}
+else {
+  printf("\nI am the child\n");
+  if (execl("/bin/ls", "/bin/ls", "../../", "-alh", NULL) == -1) {
+    perror("excecl");
+    exit(EXIT_FAILURE);
+  }
+}
+return 0;
+}
+;

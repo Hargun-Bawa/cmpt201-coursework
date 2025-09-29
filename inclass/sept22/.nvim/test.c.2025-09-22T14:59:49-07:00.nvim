@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main() {
+  int x = 0;
+  pid_t b = fork();
+  waitpid(b, &x, 0);
+  if (b != 0) {
+    printf("\nI am the parent\n");
+    execl("/bin/ls", "/bin/ls", "../../", "-a", NULL);
+    printf("exit status of child %d", WEXITSTATUS(x));
+  } else {
+    printf("\nI am the child\n");
+    execl("/bin/ls", "/bin/ls", "../../", "-alh", NULL);
+  }
+  return 0;
+};

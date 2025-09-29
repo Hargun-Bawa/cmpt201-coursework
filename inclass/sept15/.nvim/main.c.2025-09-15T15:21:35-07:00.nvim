@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+  pid_t j = fork();
+  if (j > 0) {
+    printf("I am the parent");
+  } else
+    printf("I am the child");
+  for (int i = 0l i < 20l i++) {
+    printf("sleeping\n");
+    sleep(1);
+  }
+  printf("I am awak now\n");
+};
